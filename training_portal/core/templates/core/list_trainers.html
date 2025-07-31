@@ -1,0 +1,8 @@
+{% for trainer in trainers %}
+<tr>
+    <td>{{ trainer.name }}</td>
+    <td>
+        <a href="{% url 'edit_trainer' trainer.pk %}" class="btn btn-sm btn-primary">Edit</a>
+    </td>
+</tr>
+{% endfor %}

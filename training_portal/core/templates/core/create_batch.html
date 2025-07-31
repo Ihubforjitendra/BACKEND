@@ -1,0 +1,80 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Create New Batch</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h4>Basic Batch Details</h4>
+        <div class="row">
+            <div class="col-md-4">{{ form.job_role.label }} {{ form.job_role }}</div>
+            <div class="col-md-4">{{ form.batch_id.label }} {{ form.batch_id }}</div>
+            <div class="col-md-4">{{ form.batch_name.label }} {{ form.batch_name }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">{{ form.start_date.label }} {{ form.start_date }}</div>
+            <div class="col-md-3">{{ form.end_date.label }} {{ form.end_date }}</div>
+            <div class="col-md-3">{{ form.theory_end_date.label }} {{ form.theory_end_date }}</div>
+            <div class="col-md-3">{{ form.no_of_students.label }} {{ form.no_of_students }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">{{ form.ojt_start_date.label }} {{ form.ojt_start_date }}</div>
+            <div class="col-md-3">{{ form.ojt_end_date.label }} {{ form.ojt_end_date }}</div>
+            <div class="col-md-3">{{ form.theory_hours.label }} {{ form.theory_hours }}</div>
+            <div class="col-md-3">{{ form.ojt_hours.label }} {{ form.ojt_hours }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">{{ form.trainer.label }} {{ form.trainer }}</div>
+        </div>
+
+        <hr>
+        <h4>Assessment Details</h4>
+        <div class="row">
+            <div class="col-md-6">{{ form.attendance_sheet.label }} {{ form.attendance_sheet }}</div>
+            <div class="col-md-6">{{ form.ojt_file.label }} {{ form.ojt_file }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">{{ form.candidates_assessed.label }} {{ form.candidates_assessed }}</div>
+            <div class="col-md-3">{{ form.assessment_agency.label }} {{ form.assessment_agency }}</div>
+            <div class="col-md-3">{{ form.assessor_name.label }} {{ form.assessor_name }}</div>
+            <div class="col-md-3">{{ form.assessor_aadhar.label }} {{ form.assessor_aadhar }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">{{ form.is_assessment_done.label }} {{ form.is_assessment_done }}</div>
+            <div class="col-md-6">{{ form.assessment_document.label }} {{ form.assessment_document }}</div>
+        </div>
+
+        <hr>
+        <h4>Reassessment Details</h4>
+        <div class="row">
+            <div class="col-md-4">{{ form.reassessment_date.label }} {{ form.reassessment_date }}</div>
+            <div class="col-md-4">{{ form.reassigned_students.label }} {{ form.reassigned_students }}</div>
+            <div class="col-md-4">{{ form.reassessment_agency.label }} {{ form.reassessment_agency }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">{{ form.reassessor_name.label }} {{ form.reassessor_name }}</div>
+            <div class="col-md-4">{{ form.reassessor_id.label }} {{ form.reassessor_id }}</div>
+            <div class="col-md-4">{{ form.reassessor_aadhar.label }} {{ form.reassessor_aadhar }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">{{ form.reassessment_type.label }} {{ form.reassessment_type }}</div>
+            <div class="col-md-4">{{ form.reassessment_document.label }} {{ form.reassessment_document }}</div>
+            <div class="col-md-4">{{ form.candidates_passed.label }} {{ form.candidates_passed }}</div>
+        </div>
+
+        <hr>
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-success">Create Batch</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

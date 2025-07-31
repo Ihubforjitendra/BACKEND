@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Add New Trainer</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="reset" class="btn btn-secondary">Clear</button>
+    </form>
+
+    <br>
+    <a href="{% url 'list_trainers' %}" class="btn btn-link">View All Trainers</a>
+</div>
+{% endblock %}

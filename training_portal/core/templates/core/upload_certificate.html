@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Upload Student Certificate</h2>
+
+<form method="POST" enctype="multipart/form-data" class="mt-4">
+    {% csrf_token %}
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="session">Select Session</label>
+            <select name="session" id="session" class="form-select">
+                <option value="">-- Select Session --</option>
+                {% for session in sessions %}
+                    <option value="{{ session.id }}">{{ session.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="scheme">Select Scheme</label>
+            <select name="scheme" id="scheme" class="form-select">
+                <option value="">-- Select Scheme --</option>
+                {% for scheme in schemes %}
+                    <option value="{{ scheme.id }}">{{ scheme.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="job_role">Select Job Role</label>
+            <select name="job_role" id="job_role" class="form-select">
+                <option value="">-- Select Job Role --</option>
+                {% for job in job_roles %}
+                    <option value="{{ job.id }}">{{ job.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="batch">Select Batch</label>
+            <select name="batch" id="batch" class="form-select">
+                <option value="">-- Select Batch --</option>
+                {% for batch in batches %}
+                    <option value="{{ batch.id }}">{{ batch.batch_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="candidate_id">Select Candidate ID</label>
+            <select name="candidate_id" id="candidate_id" class="form-select">
+                <option value="">-- Select Candidate ID --</option>
+                {% for student in students %}
+                    <option value="{{ student.id }}">{{ student.candidate_id }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="marksheet">Upload Marksheet</label>
+        <input type="file" name="marksheet" class="form-control" accept="application/pdf">
+    </div>
+
+    <div class="mb-3">
+        <label for="certificate">Upload Certificate</label>
+        <input type="file" name="certificate" class="form-control" accept="application/pdf">
+    </div>
+    
+    <div class="mb-3">
+    <label for="certificate"><mark>For Student Of Kishan Drone Operatot Or DAT Job Role Need to Visit the Office to Collect Respective Certificate.</mark></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-secondary">Clear</button>
+</form>
+{% endblock %}

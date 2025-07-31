@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Job Role</title>
+</head>
+<body>
+    <h2>Add New Job Role</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+        <button type="reset">Clear</button>
+    </form>
+
+    <br>
+    <a href="{% url 'list_jobroles' %}">View Job Roles</a>
+</body>
+</html>
